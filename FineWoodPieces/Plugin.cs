@@ -21,10 +21,8 @@ namespace FineWoodPieces
         private const string modGUID = "blacks7ar.FineWoodPieces";
         public const string modName = "FineWoodPieces";
         public const string modAuthor = "blacks7ar";
-        public const string modVersion = "1.5.5";
+        public const string modVersion = "1.5.7";
         public const string modLink = "https://valheim.thunderstore.io/package/blacks7ar/FineWoodPieces/";
-        private static string configFileName = modGUID + ".cfg";
-        private static string configFileFullPath = Paths.ConfigPath + Path.DirectorySeparatorChar + configFileName;
         private static readonly Harmony _harmony = new(modGUID);
 
         private static readonly ConfigSync _configSync = new(modGUID)
@@ -75,32 +73,6 @@ namespace FineWoodPieces
             syncedConfigEntry.SynchronizedConfig = synchronizedConfig;
             return configEntry;
         }
-
-        /*private void ConfigWatcher()
-        {
-            var watcher = new FileSystemWatcher(Paths.ConfigPath, configFileName);
-            watcher.Changed += OnConfigChanged;
-            watcher.Created += OnConfigChanged;
-            watcher.Renamed += OnConfigChanged;
-            watcher.IncludeSubdirectories = true;
-            watcher.SynchronizingObject = ThreadingHelper.SynchronizingObject;
-            watcher.EnableRaisingEvents = true;
-        }
-
-        private void OnConfigChanged(object sender, FileSystemEventArgs e)
-        {
-            if (!File.Exists(configFileFullPath)) return;
-            try
-            {
-                Logging.LogDebug("OnConfigChanged called..");
-                Config.Reload();
-            }
-            catch
-            {
-                Logging.LogError($"There was an issue loading your {configFileName}");
-                Logging.LogError("Please check your config entries for spelling and format!");
-            }
-        }*/
 
         public void Awake()
         {
@@ -166,7 +138,6 @@ namespace FineWoodPieces
             PrefabsSetup.Init();
             ClayPitSetup.Init();
             _harmony.PatchAll(assembly);
-            //ConfigWatcher();
         }
         
         private void OnDestroy()

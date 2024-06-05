@@ -54,6 +54,9 @@
         <Reference Include="LocalizationManager">
           <HintPath>LocalizationManager.dll</HintPath>
         </Reference>
+        <Reference Include="LocationManager">
+          <HintPath>LocationManager.dll</HintPath>
+        </Reference>
         <Reference Include="ServerSync">
           <HintPath>ServerSync.dll</HintPath>
         </Reference>
@@ -95,7 +98,6 @@
     <ItemGroup>
         <Compile Include="Functions\ComponentsSetup.cs" />
         <Compile Include="Functions\ItemManager.cs" />
-        <Compile Include="Functions\LocationManager.cs" />
         <Compile Include="Functions\Patches.cs" />
         <Compile Include="Functions\PieceManager.cs" />
         <Compile Include="Functions\PrefabsSetup.cs" />
@@ -104,7 +106,6 @@
         <Compile Include="Functions\ClayCollector.cs" />
         <Compile Include="Functions\ClayPitSetup.cs" />
         <Compile Include="Functions\Helper.cs" />
-        <Compile Include="Functions\Logging.cs" />
         <Compile Include="Functions\ShaderReplacer.cs" />
         <Compile Include="Functions\Toggle.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
@@ -114,6 +115,9 @@
       <EmbeddedResource Include="assets\finewoodbundle" />
       <Content Include="ILRepack.targets" />
       <Content Include="LocalizationManager.dll">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="LocationManager.dll">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="ServerSync.dll">
