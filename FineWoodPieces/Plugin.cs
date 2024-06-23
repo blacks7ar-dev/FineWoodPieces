@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
+﻿using System.Reflection;
 using BepInEx;
 using BepInEx.Configuration;
 using ClayBuildPieces.Functions;
@@ -21,7 +19,7 @@ namespace FineWoodPieces
         private const string modGUID = "blacks7ar.FineWoodPieces";
         public const string modName = "FineWoodPieces";
         public const string modAuthor = "blacks7ar";
-        public const string modVersion = "1.5.7";
+        public const string modVersion = "1.5.8";
         public const string modLink = "https://valheim.thunderstore.io/package/blacks7ar/FineWoodPieces/";
         private static readonly Harmony _harmony = new(modGUID);
 
@@ -77,6 +75,7 @@ namespace FineWoodPieces
         public void Awake()
         {
             Localizer.Load();
+            Config.SaveOnConfigSet = false;
             _serverConfigLocked = config("1- ServerSync", "Lock Configuration", Toggle.On,
                 new ConfigDescription("If On, the configuration is locked and can be changed by server admins only."));
             _configSync.AddLockingConfigEntry(_serverConfigLocked);
@@ -134,9 +133,11 @@ namespace FineWoodPieces
                 new ConfigDescription("Minimum distance to group.", new AcceptableValueRange<float>(1f, 500f)));
             _clayPit2Count = config("6- ClayPit-BoarSpawn", "Max Count", 100,
                 new ConfigDescription("Maximum count to try to spawn.", new AcceptableValueRange<int>(1, 200)));
-            var assembly = Assembly.GetExecutingAssembly();
             PrefabsSetup.Init();
             ClayPitSetup.Init();
+            Config.SaveOnConfigSet = true;
+            Config.Save();
+            var assembly = Assembly.GetExecutingAssembly();
             _harmony.PatchAll(assembly);
         }
         
