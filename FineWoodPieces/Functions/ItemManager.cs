@@ -411,7 +411,13 @@ public class Item
 
 	private delegate void setDmgFunc(ref HitData.DamageTypes dmg, float value);
 
-	internal static void reloadConfigDisplay() => configManager?.GetType().GetMethod("BuildSettingList")!.Invoke(configManager, Array.Empty<object>());
+	internal static void reloadConfigDisplay()
+	{
+		if (configManager?.GetType().GetProperty("DisplayingWindow")!.GetValue(configManager) is true)
+		{
+			configManager.GetType().GetMethod("BuildSettingList")!.Invoke(configManager, Array.Empty<object>());
+		}
+	}
 
 	private void UpdateItemTableConfig(string recipeKey, CraftingTable table, string customTableValue)
 	{
@@ -458,7 +464,7 @@ public class Item
 			foreach (Item item in registeredItems.Where(i => i.configurability != Configurability.Disabled))
 			{
 				string nameKey = item.Prefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_name;
-				string englishName = new Regex("""['\["\]]""").Replace(english.Localize(nameKey), "").Trim();
+				string englishName = new Regex(@"[=\n\t\\""\'\[\]]*").Replace(english.Localize(nameKey), "").Trim();
 				string localizedName = Localization.instance.Localize(nameKey).Trim();
 
 				int order = 0;
@@ -1035,7 +1041,7 @@ public class Item
 	[HarmonyPriority(Priority.Last)]
 	internal static void Patch_ObjectDBInit(ObjectDB __instance)
 	{
-		if (__instance.GetItemPrefab("Wood") == null)
+		if (__instance.GetItemPrefab("YagluthDrop") == null)
 		{
 			return;
 		}
@@ -1377,7 +1383,7 @@ public class Item
 		}
 	}
 
-	private static bool CheckItemIsUpgrade(InventoryGui gui) => gui.m_selectedRecipe.Value?.m_quality > 0;
+	private static bool CheckItemIsUpgrade(InventoryGui gui) => gui.m_selectedRecipe.ItemData?.m_quality > 0;
 
 	internal static IEnumerable<CodeInstruction> Transpile_InventoryGui(IEnumerable<CodeInstruction> instructions)
 	{
@@ -1543,7 +1549,7 @@ public class Item
 
 			GUILayout.Label("Chance: ");
 			float chance = drop.chance;
-			if (float.TryParse(GUILayout.TextField((chance * 100).ToString(CultureInfo.InvariantCulture), new GUIStyle(GUI.skin.textField) { fixedWidth = 45 }), out float newChance) && !Mathf.Approximately(newChance / 100, chance) && !locked)
+			if (float.TryParse(GUILayout.TextField((chance * 100).ToString(CultureInfo.InvariantCulture), new GUIStyle(GUI.skin.textField) { fixedWidth = 45 }), NumberStyles.Float, CultureInfo.InvariantCulture, out float newChance) && !Mathf.Approximately(newChance / 100, chance) && !locked)
 			{
 				chance = newChance / 100;
 				wasUpdated = true;
@@ -1797,7 +1803,11 @@ public class LocalizeKey
 	public readonly string Key;
 	public readonly Dictionary<string, string> Localizations = new();
 
-	public LocalizeKey(string key) => Key = key.Replace("$", "");
+	public LocalizeKey(string key)
+	{
+		Key = key.Replace("$", "");
+		keys.Add(this);
+	}
 
 	public void Alias(string alias)
 	{
@@ -1870,7 +1880,7 @@ public class LocalizeKey
 			}
 			else if (key.Localizations.TryGetValue("alias", out string alias))
 			{
-				Localization.instance.AddWord(key.Key, Localization.instance.Localize(alias));
+				__instance.AddWord(key.Key, Localization.instance.Localize(alias));
 			}
 		}
 	}
@@ -2015,7 +2025,7 @@ public static class PrefabManager
 			RegisterStatusEffect(shared.m_setStatusEffect);
 		}
 
-		__instance.UpdateItemHashes();
+		__instance.UpdateRegisters();
 	}
 
 	[HarmonyPriority(Priority.VeryHigh)]
