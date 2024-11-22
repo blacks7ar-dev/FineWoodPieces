@@ -57,6 +57,9 @@
         <Reference Include="LocationManager">
           <HintPath>LocationManager.dll</HintPath>
         </Reference>
+        <Reference Include="PieceManager">
+          <HintPath>PieceManager.dll</HintPath>
+        </Reference>
         <Reference Include="ServerSync">
           <HintPath>ServerSync.dll</HintPath>
         </Reference>
@@ -94,18 +97,11 @@
         <Reference Include="UnityEngine.PhysicsModule">
           <HintPath>..\..\..\..\Games\ValheimPTB\valheim_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
         </Reference>
-        <Reference Include="UnityEngine.TextRenderingModule">
-          <HintPath>..\..\..\..\Games\ValheimPTB\valheim_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.UI">
-          <HintPath>..\..\..\..\Games\ValheimPTB\valheim_Data\Managed\UnityEngine.UI.dll</HintPath>
-        </Reference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Functions\ComponentsSetup.cs" />
         <Compile Include="Functions\ItemManager.cs" />
         <Compile Include="Functions\Patches.cs" />
-        <Compile Include="Functions\PieceManager.cs" />
         <Compile Include="Functions\PrefabsSetup.cs" />
         <Compile Include="Functions\TrapDoor.cs" />
         <Compile Include="Plugin.cs" />
@@ -124,6 +120,9 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="LocationManager.dll">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="PieceManager.dll">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="ServerSync.dll">

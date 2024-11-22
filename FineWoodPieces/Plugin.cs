@@ -19,7 +19,7 @@ namespace FineWoodPieces
         private const string modGUID = "blacks7ar.FineWoodPieces";
         public const string modName = "FineWoodPieces";
         public const string modAuthor = "blacks7ar";
-        public const string modVersion = "1.5.9";
+        public const string modVersion = "1.6.1";
         public const string modLink = "https://valheim.thunderstore.io/package/blacks7ar/FineWoodPieces/";
         private static readonly Harmony _harmony = new(modGUID);
 

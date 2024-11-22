@@ -18,4 +18,5 @@
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=E_003A_005CGames_005CValheimPTB_005Cvalheim_005FData_005CManaged_005CUnityEngine_002EUI_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=E_003A_005CModding_0020Projects_005CGithub_005CFineWoodPieces_005CFineWoodPieces_005CLocalizationManager_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=E_003A_005CModding_0020Projects_005CGithub_005CFineWoodPieces_005CFineWoodPieces_005CLocationManager_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=E_003A_005CModding_0020Projects_005CGithub_005CFineWoodPieces_005CFineWoodPieces_005CPieceManager_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=E_003A_005CModding_0020Projects_005CGithub_005CFineWoodPieces_005CFineWoodPieces_005CServerSync_002Edll/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
