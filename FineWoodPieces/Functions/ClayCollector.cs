@@ -26,6 +26,7 @@ public class ClayCollector : MonoBehaviour, Hoverable, Interactable
     private Collider m_collider;
     private Piece m_piece;
     private bool m_connected;
+    private Collider[] m_sphereResults = new Collider[32];
 
     public void Awake()
     {
@@ -161,14 +162,21 @@ public class ClayCollector : MonoBehaviour, Hoverable, Interactable
     {
         if (CheckBiome() && !m_connected)
         {
-            var array = Physics.OverlapSphere(transform.position, 0.2f);
-            foreach (var t in array)
+            // var array = Physics.OverlapSphere(transform.position, 0.2f);
+            // foreach (var t in array)
+            // {
+            //     var component = t.GetComponentInParent<LiquidVolume>();
+            //     if (component == null) continue;
+            //     if (component.m_liquidType != LiquidType.Water) continue;
+            //     m_connected = true;
+            //     break;
+            // }
+            var array = Physics.OverlapSphereNonAlloc(transform.position, 0.2f, m_sphereResults);
+            for (var i = 0; i < array; i++)
             {
-                var component = t.GetComponentInParent<LiquidVolume>();
-                if (component == null) continue;
-                if (component.m_liquidType != LiquidType.Water) continue;
+                var collider = m_sphereResults[i];
+                if (collider.gameObject.layer != 4) continue;
                 m_connected = true;
-                break;
             }
         }
         

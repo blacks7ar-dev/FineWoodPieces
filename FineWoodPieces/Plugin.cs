@@ -19,7 +19,7 @@ namespace FineWoodPieces
         private const string modGUID = "blacks7ar.FineWoodPieces";
         public const string modName = "FineWoodPieces";
         public const string modAuthor = "blacks7ar";
-        public const string modVersion = "1.6.1";
+        public const string modVersion = "1.6.2";
         public const string modLink = "https://valheim.thunderstore.io/package/blacks7ar/FineWoodPieces/";
         private static readonly Harmony _harmony = new(modGUID);
 
@@ -48,14 +48,14 @@ namespace FineWoodPieces
         public static ConfigEntry<float> _clayBigMax;
         public static ConfigEntry<float> _secPerUnit;
         public static ConfigEntry<int> _maxClay;
-        public static ConfigEntry<Heightmap.Biome> _clayPit1Biome;
-        public static ConfigEntry<Heightmap.BiomeArea> _clayPit1BiomeArea;
-        public static ConfigEntry<float> _clayPit1MinDistance;
-        public static ConfigEntry<int> _clayPit1Count;
-        public static ConfigEntry<Heightmap.Biome> _clayPit2Biome;
-        public static ConfigEntry<Heightmap.BiomeArea> _clayPit2BiomeArea;
-        public static ConfigEntry<float> _clayPit2MinDistance;
-        public static ConfigEntry<int> _clayPit2Count;
+        // public static ConfigEntry<Heightmap.Biome> _clayPit1Biome;
+        // public static ConfigEntry<Heightmap.BiomeArea> _clayPit1BiomeArea;
+        // public static ConfigEntry<float> _clayPit1MinDistance;
+        // public static ConfigEntry<int> _clayPit1Count;
+        // public static ConfigEntry<Heightmap.Biome> _clayPit2Biome;
+        // public static ConfigEntry<Heightmap.BiomeArea> _clayPit2BiomeArea;
+        // public static ConfigEntry<float> _clayPit2MinDistance;
+        // public static ConfigEntry<int> _clayPit2Count;
         public static ConfigEntry<Toggle> _hideTrapDoorHoverText;
         
         private ConfigEntry<T> config<T>(string group, string name, T value, ConfigDescription description,
@@ -117,7 +117,7 @@ namespace FineWoodPieces
                     new AcceptableValueRange<float>(30f, 300f)));
             _maxClay = config("5- Collector", "Max Capacity", 10,
                 new ConfigDescription("Maximum Capacity.", new AcceptableValueRange<int>(1, 50)));
-            _clayPit1Biome = config("7- ClayPit-NeckSpawn", "Biome", Heightmap.Biome.Meadows,
+            /*_clayPit1Biome = config("7- ClayPit-NeckSpawn", "Biome", Heightmap.Biome.Meadows,
                 new ConfigDescription("Biome to spawn the clay pit location."));
             _clayPit1BiomeArea = config("7- ClayPit-NeckSpawn", "Biome Area", Heightmap.BiomeArea.Everything,
                 new ConfigDescription("Biome area."));
@@ -132,9 +132,9 @@ namespace FineWoodPieces
             _clayPit2MinDistance = config("6- ClayPit-BoarSpawn", "Minimum Distance", 128f,
                 new ConfigDescription("Minimum distance to group.", new AcceptableValueRange<float>(1f, 500f)));
             _clayPit2Count = config("6- ClayPit-BoarSpawn", "Max Count", 100,
-                new ConfigDescription("Maximum count to try to spawn.", new AcceptableValueRange<int>(1, 200)));
+                new ConfigDescription("Maximum count to try to spawn.", new AcceptableValueRange<int>(1, 200)));*/
             PrefabsSetup.Init();
-            ClayPitSetup.Init();
+            //ClayPitSetup.Init();
             Config.SaveOnConfigSet = true;
             Config.Save();
             var assembly = Assembly.GetExecutingAssembly();

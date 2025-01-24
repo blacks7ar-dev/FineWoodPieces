@@ -16,8 +16,8 @@ public static class PrefabsSetup
     private const string _beechMat = "BeechSeeds";
     public static GameObject _pickableClay;
     public static GameObject _clusterClay;
-    public static GameObject _clayPit1;
-    public static GameObject _clayPit2;
+    // public static GameObject _clayPit1;
+    // public static GameObject _clayPit2;
     public static GameObject _pickableReed;
 
     public static void Init()
@@ -79,10 +79,10 @@ public static class PrefabsSetup
         ShaderReplacer.Replace(_clusterClay);
         _pickableReed = PiecePrefabManager.RegisterPrefab(_fineWoodBundle, "BFP_Pickable_Reed");
         ShaderReplacer.Replace(_pickableReed);
-        _clayPit1 = PiecePrefabManager.RegisterPrefab(_fineWoodBundle, "BCP_ClayPit");
-        ShaderReplacer.Replace(_clayPit1);
-        _clayPit2 = PiecePrefabManager.RegisterPrefab(_fineWoodBundle, "BCP_ClayPit1");
-        ShaderReplacer.Replace(_clayPit2);
+        // _clayPit1 = PiecePrefabManager.RegisterPrefab(_fineWoodBundle, "BCP_ClayPit");
+        // ShaderReplacer.Replace(_clayPit1);
+        // _clayPit2 = PiecePrefabManager.RegisterPrefab(_fineWoodBundle, "BCP_ClayPit1");
+        // ShaderReplacer.Replace(_clayPit2);
     }
 
     private static void Furniture()

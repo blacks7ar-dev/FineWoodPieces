@@ -30,7 +30,7 @@ public static class ComponentsSetup
             }
         ];
         component.m_enabledObject = Utils.FindChild(component.gameObject.transform, "_enabled").gameObject;
-        component.m_biome = Heightmap.Biome.Meadows;
+        component.m_biome = Heightmap.Biome.Meadows | Heightmap.Biome.BlackForest | Heightmap.Biome.Swamp | Heightmap.Biome.Plains;
     }
     
     public static void SetClayStand(ZNetScene zNetScene)
