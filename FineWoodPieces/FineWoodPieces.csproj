@@ -37,19 +37,19 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="0Harmony">
-          <HintPath>..\..\..\..\Games\Valheim\BepInEx\core\0Harmony.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\BepInEx\core\0Harmony.dll</HintPath>
         </Reference>
         <Reference Include="assembly_guiutils">
-          <HintPath>..\..\..\..\Games\Valheim\valheim_Data\Managed\publicized_assemblies\assembly_guiutils_publicized.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\valheim_Data\Managed\publicized_assemblies\assembly_guiutils_publicized.dll</HintPath>
         </Reference>
         <Reference Include="assembly_utils">
-          <HintPath>..\..\..\..\Games\Valheim\valheim_Data\Managed\publicized_assemblies\assembly_utils_publicized.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\valheim_Data\Managed\publicized_assemblies\assembly_utils_publicized.dll</HintPath>
         </Reference>
         <Reference Include="assembly_valheim">
-          <HintPath>..\..\..\..\Games\Valheim\valheim_Data\Managed\publicized_assemblies\assembly_valheim_publicized.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\valheim_Data\Managed\publicized_assemblies\assembly_valheim_publicized.dll</HintPath>
         </Reference>
         <Reference Include="BepInEx">
-          <HintPath>..\..\..\..\Games\Valheim\BepInEx\core\BepInEx.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\BepInEx\core\BepInEx.dll</HintPath>
         </Reference>
         <Reference Include="LocalizationManager">
           <HintPath>LocalizationManager.dll</HintPath>
@@ -64,38 +64,38 @@
           <HintPath>ServerSync.dll</HintPath>
         </Reference>
         <Reference Include="SoftReferenceableAssets">
-          <HintPath>..\..\..\..\Games\Valheim\valheim_Data\Managed\publicized_assemblies\SoftReferenceableAssets_publicized.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\valheim_Data\Managed\publicized_assemblies\SoftReferenceableAssets_publicized.dll</HintPath>
         </Reference>
         <Reference Include="System"/>
         <Reference Include="System.Core"/>
         <Reference Include="System.Data"/>
         <Reference Include="System.Xml"/>
         <Reference Include="Unity.TextMeshPro">
-          <HintPath>..\..\..\..\Games\Valheim\valheim_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\valheim_Data\Managed\Unity.TextMeshPro.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine">
-          <HintPath>..\..\..\..\Games\Valheim\valheim_Data\Managed\UnityEngine.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\valheim_Data\Managed\UnityEngine.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.AnimationModule">
-          <HintPath>..\..\..\..\Games\Valheim\valheim_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\valheim_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.AssetBundleModule">
-          <HintPath>..\..\..\..\Games\Valheim\valheim_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\valheim_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
-          <HintPath>..\..\..\..\Games\Valheim\valheim_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\valheim_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.ImageConversionModule">
-          <HintPath>..\..\..\..\Games\Valheim\valheim_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\valheim_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.IMGUIModule">
-          <HintPath>..\..\..\..\Games\Valheim\valheim_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\valheim_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.ParticleSystemModule">
-          <HintPath>..\..\..\..\Games\Valheim\valheim_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\valheim_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.PhysicsModule">
-          <HintPath>..\..\..\..\Games\Valheim\valheim_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+          <HintPath>..\..\..\..\Games\Valheim.v0.220.3\valheim_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
@@ -112,6 +112,9 @@
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <ItemGroup>
+      <Content Include="ServerSync.dll">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
       <EmbeddedResource Include="translations\English.yml" />
       <EmbeddedResource Include="assets\finewoodbundle" />
       <Content Include="ILRepack.targets" />
@@ -122,9 +125,6 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="PieceManager.dll">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
-      <Content Include="ServerSync.dll">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
